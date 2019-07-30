@@ -1,23 +1,15 @@
 var giphyList = [];
 
+//Create a new boostrap card container
+
 function createCard(response) {
-    // Create a new boostrap card container
-    var article = $("<article>");
-    article.addClass("card");
+    for (var i = 0; i < 5; i++) {
+        var catImage = response.data[i].images.original.url
+        $("#cat-section").append("<img src ='" + catImage + "'>");
+    }
 
-
-    var catImage = $("<img>");
-    catImage.attr("src", response.data.original_still);
-
-    var catImage = $("<figure>");
-    catImage.append(giphyImage);
-    article.append(giphyImage);
-
-    var cardBody = $("<div>");
-    cardBody.addClass("card-body");
-
-    $("#cat-section").append(article);
 }
+
 
 function getGif(cat) {
 
@@ -30,28 +22,18 @@ function getGif(cat) {
         console.log(response);
         if (response.Response === "False") {
             alert(response.Error);
-        } else if (giphy.indexOf(response.data.original_still) >= 0) {
-            alert("Gif already in List!")
         } else {
             createCard(response);
-            gif.push(response.Title);
+            console.log(response);
         }
     });
 
 }
 
-
-
-for (var i = 0; i < giphyList.length; i++) {
-
-    var giphy = giphyList[i];
-    getGif(cat);
-    console.log(giphyList);
-
-}
-$("#search").click(function () {
+$("#search").on("click", function () {
 
     var cat = $("#cat-images").val();
     getGif(cat);
+    console.log('test')
 
 });
