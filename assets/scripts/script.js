@@ -12,6 +12,7 @@ function createCard(response) {
 
 
 function getGif(cat) {
+    $("#cat-section").html("")
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cat + "&api_key=8F9fu64K7RrQVSzSMwz0ih9waWRnNi0b&limit=5"
 
