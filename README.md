@@ -5,7 +5,7 @@
 Dynamic web page that populates gifs of users choice.
 
 ## View 
-![alt text](/assets/images/image.png)
+
 
 ## Technologies used 
  * HTML
